@@ -28,12 +28,23 @@ public class LCA {
 
 	假设给出的两个节点都在树中存在
 	
+	给你 root, A, B 三个点的信息
+	A和B保证都在 root 的下面
 	
 	使用分治法，递归方式
 	
+	定义返回值：由于返回值不准确，所以用下边的方法
+	A,B 都存在 -> return LCA(A,B)
+	只有A --> return A 
+	只有B --> return B
+	A,B 都不存在 --> return null
+
+
 	A和B要么分别位于LCA的左右，要么LCA就是其中的一个点，而另一个点再左子树或者右子树中
 	
 	定义方法f，返回值为A和B是否在子树中
+	
+	
 	 * @param root
 	 * @param A
 	 * @param B
@@ -119,6 +130,9 @@ public class LCA {
 	 * 578. 最近公共祖先 III
 		
 		这两个节点未必都在这棵树上出现。
+		
+		root, p, q
+但是不保证 root 里一定有 p 和 q
 		
 	 * @param root
 	 * @param A
