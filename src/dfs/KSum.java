@@ -36,50 +36,6 @@ public class KSum {
 	 * @param target
 	 * @return
 	 */
-	public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        // write your code here
-		
-		List<List<Integer>> resultList=new ArrayList<List<Integer>>();
-		
-		if (candidates==null) {
-			
-			return resultList;
-		}
-		
-		Arrays.sort(candidates);
-		
-		dfs(candidates, target, resultList, 0, new ArrayList<Integer>());
-		
-		return resultList;
-    }
-	
-	
-	public void dfs(int[] candidates, 
-			int target,
-			List<List<Integer>> resultList,
-			int startIndex,
-			List<Integer> list) {
-		
-		if (target<0) {
-			return;
-		}
-		
-		//用list的和加到一起是否等于target比较慢，每次把target-当前的值，判断是否等于0快
-		if (target==0) {
-			resultList.add(new ArrayList<Integer>(list));
-			return;
-		}
-		
-		for (int i = startIndex; i < candidates.length; i++) {
-			
-			if (i>0&&candidates[i]==candidates[i-1]) {
-				continue;
-			}
-			list.add(candidates[i]);
-			dfs(candidates, target-candidates[i], resultList, i, list);
-			list.remove(list.size()-1);
-		}
-	}
 	
 	/**
 	 * 90. k数和 II

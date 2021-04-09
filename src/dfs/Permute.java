@@ -129,6 +129,13 @@ public class Permute {
 	/**
 	 * 10. 字符串的不同排列
 	 * 给出一个字符串，找到它的所有排列，注意同一个字符串不要打印两次。
+	 *        输入："abb"
+		输出：
+		["abb", "bab", "bba"]
+
+	 * 搜索去重的诀窍 —— 选代表
+错误方法：把所有方案都放在 HashSet 里去重
+正确方法：在每组重复方案中选出代表方案
 	 * @param str
 	 * @return
 	 */
@@ -141,6 +148,7 @@ public class Permute {
 		
 		char[] array = str.toCharArray();
 		
+		//将所有重复的放在一起
 		Arrays.sort(array);
 		
 		StringBuilder sb=new StringBuilder();
@@ -166,6 +174,7 @@ public class Permute {
 				continue;
 			}
 			
+			//判断是否选中
 			if (i>0&&nums[i]==nums[i-1]&&!visited[i-1]) {
 				continue;
 			}
