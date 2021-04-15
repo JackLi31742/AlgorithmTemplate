@@ -203,4 +203,28 @@ public class Traversal {
 		}
 		return root;
 	}
+	
+	/**
+	 * 175. 翻转二叉树
+	翻转一棵二叉树。左右子树交换
+	 * @param root
+	 */
+	public void invertBinaryTree(TreeNode root) {
+        // write your code here
+		
+		if (root==null) {
+			return;
+		}
+		swip(root);
+		invertBinaryTree(root.left);
+		invertBinaryTree(root.right);
+		
+    }
+	
+	public void swip(TreeNode root) {
+		
+		TreeNode tempNode=root.left;
+		root.left=root.right;
+		root.right=tempNode;
+	}
 }
