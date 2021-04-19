@@ -27,6 +27,131 @@ public class BST {
 	}
 	
 	/**
+	 * 85. 在二叉查找树中插入节点
+	 * 给定一棵二叉查找树和一个新的树节点，将节点插入到树中。
+
+	你需要保证该树仍然是一棵二叉查找树。
+	 * @param root
+	 * @param node
+	 * @return
+	 */
+	public TreeNode insertNode(TreeNode root, TreeNode node) {
+        // write your code here
+		if (root==null) {
+			return node;
+		}
+		
+		TreeNode cur=root;
+		
+		TreeNode pre=null;
+		
+		while(cur!=null) {
+			
+			pre=cur;
+			
+			if (cur.val>node.val) {
+				cur=cur.left;
+			}else {
+				cur=cur.right;
+			}
+		}
+		
+		if (pre.val>node.val) {
+			pre.left=node;
+		}else {
+			pre.right=node;
+		}
+		
+		return root;
+    }
+	
+	/**
+	 * 87. 删除二叉查找树的节点
+		给定一棵具有不同节点值的二叉查找树，删除树中与给定值相同的节点。
+		如果树中没有相同值的节点，就不做任何处理。你应该保证处理之后的树仍是二叉查找树。
+	 * @param root
+	 * @param value
+	 * @return
+	 */
+
+	/**
+	 * dummy 
+	 * @param root
+	 * @param value
+	 * @return
+	 */
+	public TreeNode removeNode2(TreeNode root, int value) {
+		
+		if (root==null) {
+			return null;
+		}
+		
+		TreeNode dummy=new TreeNode(-1);
+		
+		dummy.left=root;
+		TreeNode cur=root;
+		
+		removeNode2(cur, dummy, value);
+		
+		return dummy.left;
+	}
+	
+	public void removeNode2(TreeNode cur, TreeNode parent,int value) {
+		
+		if (cur==null) {
+			return ;
+		}
+		
+		if (parent.left==cur) {
+			if (cur.val==value) {
+				
+				parent.left=remove(cur, value);
+				return;
+			}
+		}
+		
+		if(parent.right==cur){
+			if (cur.val==value) {
+				parent.right=remove(cur, value);;
+				return;
+			}
+		}
+		
+		if (cur.val>value) {
+			removeNode2(cur.left, cur,value);
+			return;
+		}
+
+		if (cur.val<value) {
+			removeNode2(cur.right,cur, value);
+			return ;
+		}
+	}
+	
+	public TreeNode remove(TreeNode cur, int value) {
+		
+		if (cur.left!=null&&cur.right!=null) {
+			if (cur.right.left!=null) {
+				
+				cur.left.right=cur.right;
+				cur=cur.left;
+			}else {
+				
+				cur.right.left=cur.left;
+				cur=cur.right;
+			}
+			
+		}else if (cur.left!=null) {
+			cur=cur.left;
+		}else {
+			cur=cur.right;
+		}
+		
+		return cur;
+	}
+	
+	
+	/**
 	 * 95. 验证二叉查找树
 	 * 给定一个二叉树，判断它是否是合法的二叉查找树(BST)
 
@@ -83,295 +208,54 @@ public class BST {
 
 	
 	
+	
+    
+    
+    
+    
 	/**
-	 * 902 · BST中第K小的元素
-	 * 给一棵二叉搜索树，写一个 KthSmallest 函数来找到其中第 K 小的元素。
-	 * 
-	 * 1 ≤ k ≤ 树的总节点数
-	 * 
-	 * 
-	 * 时间复杂度分析
-		O(k + h)
-		当 k 是 1 的时候 ==> O(h)
-		当 k 是 n 的时候 ==> O(n)
-		k和h两者取大值
-
-
-	 * 如果这棵 BST 经常会被修改(插入/删除操作)
-	 * 并且你需要很快速的找到第 K 小的元素呢？你会如何优化这个 KthSmallest 函数？
-	 * 
-	 * 
-	 * 在 TreeNode 中增加一个 counter，代表整个树的节点个数
-		也可以用一个 HashMap<TreeNode, Integer> 来存储某个节点为代表的子树的节点个数
-		在增删查改的过程中记录不断更新受影响节点的 counter
-		在 kthSmallest 的实现中用类似 Quick Select 的算法去找到 kth smallest element
-		时间复杂度为 O(h)，h 为树的高度。
-	 * 
+	 * 11. 二叉查找树中搜索区间
+		给定一个二叉查找树和范围[k1, k2]。按照升序返回给定范围内的节点值。
 	 * @param root
-	 * @param k
+	 * @param k1
+	 * @param k2
 	 * @return
 	 */
-	public int kthSmallest(TreeNode root, int k) {
-        // write your code here
-		Stack<TreeNode> stack = new Stack<>();
-        
-        while (root != null) {
-            stack.push(root);
-            root = root.left;
-        }
-    
-        for (int i = 0; i < k - 1; i++) {
-            TreeNode node = stack.peek();
-            
-            if (node.right == null) {
-                node = stack.pop();
-                while (!stack.isEmpty() && stack.peek().right == node) {
-                    node = stack.pop();
-                }
-            } else {
-                node = node.right;
-                while (node != null) {
-                    stack.push(node);
-                    node = node.left;
-                }
-            }
-        }
-        
-        return stack.peek().val;
-    }
-	
-	
-	/**
-	 * 900 · 二叉搜索树中最接近的值
-	 * 给一棵非空二叉搜索树以及一个target值，找到在BST中最接近给定值的节点值
-	 * 如果使用中序遍历，时间复杂度是多少？
-如果使用 lowerBound / upperBound 的方法，时间复杂度是多少？
-
-求出 lowerBound 和 upperBound。即 < target 的最大值和 >= target 的最小值。 然后在两者之中去比较谁更接近，然后返回即可。
-
-时间复杂度为 O(h)，注意如果你使用 in-order traversal 的化，时间复杂度会是 
-o(n) 并不是最优的。另外复杂度也不是 O(logn)
- 因为BST 并不保证树高是 logn 的。
-	 */
-	
-	public int closestValue(TreeNode root, double target) {
-        if (root == null) {
-            return 0;
-        }
-        
-        TreeNode lowerNode = lowerBound(root, target);
-        TreeNode upperNode = upperBound(root, target);
-        
-        if (lowerNode == null) {
-            return upperNode.val;
-        }
-        
-        if (upperNode == null) {
-            return lowerNode.val;
-        }
-        
-        if (target - lowerNode.val > upperNode.val - target) {
-            return upperNode.val;
-        }
-        
-        return lowerNode.val;
-    }
-    
-    // find the node with the largest value that smaller than target
-    private TreeNode lowerBound(TreeNode root, double target) {
-        if (root == null) {
-            return null;
-        }
-        
-        if (target <= root.val) {
-            return lowerBound(root.left, target);
-        }
-        
-        // root.val < target
-        TreeNode lowerNode = lowerBound(root.right, target);
-        if (lowerNode != null) {
-            return lowerNode;
-        }
-        
-        return root;
-    }
-    
-    // find the node with the smallest value that larger than or equal to target
-    private TreeNode upperBound(TreeNode root, double target) {
-        if (root == null) {
-            return null;
-        }
-        
-        if (root.val < target) {
-            return upperBound(root.right, target);
-        }
-        
-        // root.val >= target
-        TreeNode upperNode = upperBound(root.left, target);
-        if (upperNode != null) {
-            return upperNode;
-        }
-        
-        return root;
-    }
-    
-    /**
-     * 901 · 二叉搜索树中最接近的值 II、
-     * 
-     * 给定一棵非空二叉搜索树以及一个target值，找到 BST 中最接近给定值的 k 个数。
-     * 
-     * 
-     * 如果是用中序遍历得到从小到大的所有值，接下来的问题相当于求排序数组的最接近的k个值
-     * 
-     * 方法1 暴力做法
-	先用 inorder traversal 求出中序遍历
-	找到第一个 >= target 的位置 index
-	从 index-1 和 index 出发，设置两根指针一左一右，获得最近的 k
-	个整数
-	
-	
-	
-     */
-    
-    public List<Integer> closestKValues(TreeNode root, double target, int k) {
-        List<Integer> values = new ArrayList<>();
-        
-        traverse(root, values);
-        
-        int i = 0, n = values.size();
-        for (; i < n; i++) {
-            if (values.get(i) >= target) {
-                break;
-            }
-        }
-        
-        if (i >= n) {
-            return values.subList(n - k, n);
-        }
-        
-        int left = i - 1, right = i;
-        List<Integer> result = new ArrayList<>();
-        for (i = 0; i < k; i++) {
-            if (left >= 0 && (right >= n || target - values.get(left) < values.get(right) - target)) {
-                result.add(values.get(left));
-                left--;
-            } else {
-                result.add(values.get(right));
-                right++;
-            }
-        }
-        
-        return result;
-    }
-    
-    private void traverse(TreeNode root, List<Integer> values) {
-        if (root == null) {
-            return;
-        }
-        
-        traverse(root.left, values);
-        values.add(root.val);
-        traverse(root.right, values);
-    }
-    
-    /**
-     * 方法2 使用两个 Iterator 一个 iterator move forward
-	另一个iterator move backward
-	每次 i++ 的时候根据 stack，挪动到 next node
-	每次i--的时候根据 stack, 挪动到 prev node
-     */
-    
-    public List<Integer> closestKValues2(TreeNode root, double target, int k) {
-        List<Integer> values = new ArrayList<>();
-        
-        if (k == 0 || root == null) {
-            return values;
-        }
-        
-        Stack<TreeNode> lowerStack = getStack(root, target);
-        Stack<TreeNode> upperStack = new Stack<>();
-        upperStack.addAll(lowerStack);
-        if (target < lowerStack.peek().val) {
-            moveLower(lowerStack);
-        } else {
-            moveUpper(upperStack);
-        }
-        
-        for (int i = 0; i < k; i++) {
-            if (lowerStack.isEmpty() ||
-                   !upperStack.isEmpty() && target - lowerStack.peek().val > upperStack.peek().val - target) {
-                values.add(upperStack.peek().val);
-                moveUpper(upperStack);
-            } else {
-                values.add(lowerStack.peek().val);
-                moveLower(lowerStack);
-            }
-        }
-
-        return values;
-    }
-    
-    private Stack<TreeNode> getStack(TreeNode root, double target) {
-        Stack<TreeNode> stack = new Stack<>();
-        
-        while (root != null) {
-            stack.push(root);
-            
-            if (target < root.val) {
-                root = root.left;
-            } else {
-                root = root.right;
-            }
-        }
-        
-        return stack;
-    }
-    
-    public void moveUpper(Stack<TreeNode> stack) {
-        TreeNode node = stack.peek();
-        if (node.right == null) {
-            node = stack.pop();
-            while (!stack.isEmpty() && stack.peek().right == node) {
-                node = stack.pop();
-            }
-            return;
-        }
-        
-        node = node.right;
-        while (node != null) {
-            stack.push(node);
-            node = node.left;
-        }
-    }
-    
-    public void moveLower(Stack<TreeNode> stack) {
-        TreeNode node = stack.peek();
-        if (node.left == null) {
-            node = stack.pop();
-            while (!stack.isEmpty() && stack.peek().left == node) {
-                node = stack.pop();
-            }
-            return;
-        }
-        
-        node = node.left;
-        while (node != null) {
-            stack.push(node);
-            node = node.right;
-        }
-    }
-    
-    
-    
-    
-	/**
-	 * lintcode 11. 二叉查找树中搜索区间
-	 * 给定一个二叉查找树和范围[k1, k2]。按照升序返回给定范围内的节点值。
-	 */
-	
 	public List<Integer> searchRange(TreeNode root, int k1, int k2) {
         // write your code here
+		
+		List<Integer> result =new ArrayList<Integer>();
+		
+		TreeNode cur =root;
+		
+		searchRange(cur, k1, k2, result);
+		
+		return result;
     }
+	
+	public void searchRange(TreeNode root, int k1, int k2,List<Integer> result) {
+		
+		if (root==null) {
+			
+			return ;
+		}
+		
+		if (root.val>k2) {
+			
+			searchRange(root.left, k1, k2, result);
+			return ;
+		}
+		
+		if (root.val<k1) {
+			
+			searchRange(root.right, k1, k2, result);
+			return ;
+		}
+		
+		result.add(root.val);
+		searchRange(root.left, k1, k2, result);
+		searchRange(root.right, k1, k2, result);
+	}
 	
 	/**
 	 * 689. 两数之和 - BST版本
@@ -397,6 +281,48 @@ o(n) 并不是最优的。另外复杂度也不是 O(logn)
 	public TreeNode trimBST(TreeNode root, int minimum, int maximum) {
         // write your code here
     }
+	
+	
+	/**
+	 * 915. BST的中序前驱节点
+	 * 给出一棵二叉搜索树以及其中的一个节点，找到这个节点在这棵树中的中序前驱节点。
+	 * @param root
+	 * @param p
+	 * @return
+	 */
+	public TreeNode inorderPredecessor(TreeNode root, TreeNode p) {
+	        // write your code here
+		if (root==null||p==null) {
+			return null;
+		}
+		
+		Stack<TreeNode> stack=new Stack<TreeNode>();
+		
+		TreeNode cur=root;
+		
+		TreeNode pre=null;
+		
+		while(cur!=null||!stack.isEmpty()) {
+			
+			if(cur!=null) {
+				stack.push(cur);
+				cur=cur.left;
+			}else {
+				TreeNode node = stack.pop();
+				//在pop的时候才是正在的中序，push的时候不是
+				if (node==p) {
+					break;
+				}else {
+					pre=node;
+				}
+				cur=node.right;
+			}
+			
+			
+		}
+		
+		return pre;
+	}
     
 }
 
