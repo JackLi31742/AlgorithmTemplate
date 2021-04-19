@@ -14,7 +14,7 @@ public class Permute {
 	}
 	
 	/**
-	 * 15. 全排列
+	 * lintcode 15. 全排列 46
 	 * 给定一个数字列表，返回其所有可能的排列。
 	 * 
 	 * 点：每个数为一个点
@@ -66,7 +66,7 @@ public class Permute {
 	}
 	
 	/**
-	 * 16. 带重复元素的排列
+	 * lintcode 16. 带重复元素的排列 47
 	 * 给出一个具有重复数字的列表，找出列表所有不同的排列。
 	 * @param nums
 	 * @return
@@ -187,4 +187,25 @@ public class Permute {
 			
 		}
 	}
+	
+	
+	/**
+	 * 52. 下一个排列
+	 * 给定一个整数数组来表示排列，找出其之后的一个排列。
+	 */
+	public int[] nextPermutation(int[] nums) {
+        // write your code here
+    }
+	
+	
+	
+	/**
+	 * 197. 排列序号
+	 * 给出一个不含重复数字的排列，求这些数字的所有排列按字典序排序后该排列的编号。其中，编号从1开始。
+	 * @param A
+	 * @return
+	 */
+	public long permutationIndex(int[] A) {
+        // write your code here
+    }
 }

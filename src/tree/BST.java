@@ -361,6 +361,43 @@ o(n) 并不是最优的。另外复杂度也不是 O(logn)
         }
     }
     
+    
+    
+    
+	/**
+	 * lintcode 11. 二叉查找树中搜索区间
+	 * 给定一个二叉查找树和范围[k1, k2]。按照升序返回给定范围内的节点值。
+	 */
+	
+	public List<Integer> searchRange(TreeNode root, int k1, int k2) {
+        // write your code here
+    }
+	
+	/**
+	 * 689. 两数之和 - BST版本
+	 * 给一棵二叉搜索树以及一个整数 n, 在树中找到和为 n 的两个数字
+	 * @param root
+	 * @param n
+	 * @return
+	 */
+	public int[] twoSum(TreeNode root, int n) {
+        // write your code here
+    }
+	
+	/**
+	 * 701. 修剪二叉搜索树
+	 * 给定一个有根的二分搜索树和两个数字min和max，
+	 * 修整这个树使得所有的数字在这个新的树种都是在min和max之间（包括min和max）。
+	 * 然后这个所得的树仍然是合法的二分搜索树。
+	 * @param root
+	 * @param minimum
+	 * @param maximum
+	 * @return
+	 */
+	public TreeNode trimBST(TreeNode root, int minimum, int maximum) {
+        // write your code here
+    }
+    
 }
 
 

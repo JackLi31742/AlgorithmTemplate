@@ -2,7 +2,7 @@ package sort;
 
 import java.util.Arrays;
 
-public class Sort {
+public class QuickSort {
 	
 	
 	public static void main(String[] args) {
@@ -68,5 +68,51 @@ public class Sort {
 		int temp=arr[i];
 		arr[i]=arr[j];
 		arr[j]=temp;
+	}
+	
+	/**
+	 * 交换指针法 partition
+	 * @param arr
+	 * @param start
+	 * @param end
+	 */
+	public static void sort(int[]arr,int start,int end) {
+		
+		if (start>=end) {
+			return;
+		}
+		
+		int partiton=partition(arr, start, end);
+		
+		sort(arr, start, partiton-1);
+		sort(arr, partiton, end);
+	}
+	
+	public static int partition(int[]arr,int start,int end) {
+		
+		int left=start;
+		int right=end;
+		int index=start+(end-start)/2;
+		int pivot=arr[index];
+		
+		while(left<=right) {
+			
+			while(left<=right&&arr[right]>pivot) {
+				right--;
+			}
+			
+			while(left<=right&&arr[left]<pivot) {
+				left++;
+			}
+			
+			if (left<=right) {
+				swip(arr,left,right);
+				//由于已经比较了当前的，所以直接移动指针比较下一个
+				left++;
+				right--;
+			}
+		}
+		
+		return left;
 	}
 }

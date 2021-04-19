@@ -261,7 +261,7 @@ public class Kth {
     }
 	
 	/**
-	 * 
+	 * 小顶堆
 	 * @param nums
 	 * @param k
 	 * @return
@@ -279,15 +279,6 @@ public class Kth {
 			return new int[k];
 		}
 		
-		//int数组，第一个代表nums[i]，第二个代表出现的次数，相当于把int[]数组当成了对象
-//		Comparator<int[]> comparator=new Comparator<int[]>() {
-//
-//			@Override
-//			public int compare(int[] o1, int[] o2) {
-//				// TODO Auto-generated method stub
-//				return o1[1]-o2[1];
-//			}
-//		};
 		
 		//小顶堆
 		Comparator<Map.Entry<Integer, Integer>> comparator=new Comparator<Map.Entry<Integer,Integer>>() {
@@ -331,25 +322,5 @@ public class Kth {
 		
 	}
 	
-	/**
-	 * 378. 有序矩阵中第K小的元素
-	 * 401. 排序矩阵中的从小到大第k个数
-	 * 排序矩阵的定义为：每一行递增，每一列也递增。
-	 * @param matrix
-	 * @param k
-	 * @return
-	 */
-	public int kthSmallest(int[][] matrix, int k) {
-
-		if (matrix==null||matrix.length==0||matrix[0].length==0||k<=0) {
-			return -1;
-		}
-		
-		int row = matrix.length;
-		int col = matrix[0].length;
-		
-		PriorityQueue<Integer> maxHeap =new PriorityQueue<Integer>(k);
-		
-		
-    }
+	
 }
