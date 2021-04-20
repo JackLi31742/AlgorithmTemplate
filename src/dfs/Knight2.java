@@ -3,7 +3,11 @@ package dfs;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-
+/**
+ * 骑士周游，输出骑士在棋盘上所有的位置
+ * @author HP
+ *
+ */
 public class Knight2 {
 	
 	public static void main(String[] args) {

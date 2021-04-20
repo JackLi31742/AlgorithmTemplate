@@ -10,7 +10,6 @@ import java.util.Stack;
  * 方式2：可以利用栈这个数据结构，将各个节点压入到栈中，然后利用栈的先进后出的特点，就实现了逆序打印的效果.
 举例演示栈的使用 Stack 
 
- * @author HP
  *
  */
 public class ReversePrint {

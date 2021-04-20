@@ -15,8 +15,15 @@ import java.util.Set;
  */
 public class WordLadder {
 
-	
-public static int ladderLength(String start, String end, Set<String> dict) {
+	/**
+	 * 120 · 单词接龙
+	 * 给出两个单词（start和end）和一个字典，找出从start到end的最短转换序列，输出最短序列的长度。
+	 * @param start
+	 * @param end
+	 * @param dict
+	 * @return
+	 */
+	public static int ladderLength(String start, String end, Set<String> dict) {
 		
 		//为了方便，将end加入dict
 		dict.add(end);

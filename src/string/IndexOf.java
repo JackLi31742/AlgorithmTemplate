@@ -12,7 +12,7 @@ public class IndexOf {
 	 * @param needle
 	 * @return
 	 */
-	public static int strStr(String haystack, String needle) {
+	public static int strStr1(String haystack, String needle) {
 		
 		if (needle.equals("")) {
 			return 0;

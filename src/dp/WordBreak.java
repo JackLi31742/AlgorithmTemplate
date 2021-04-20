@@ -35,7 +35,7 @@ public class WordBreak {
 	 * @param wordDict
 	 * @return
 	 */
-	public List<String> wordBreak(String s, Set<String> wordDict) {
+	public List<String> wordBreak2(String s, Set<String> wordDict) {
         // write your code here
     }
 	

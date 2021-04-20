@@ -157,7 +157,7 @@ public class Stock {
 	 * @param prices
 	 * @return
 	 */
-	public int maxProfit(int[] prices) {
+	public int maxProfit3(int[] prices) {
 
     }
 	
@@ -172,7 +172,7 @@ public class Stock {
 	 * @param prices
 	 * @return
 	 */
-	public int maxProfit(int k, int[] prices) {
+	public int maxProfit4(int k, int[] prices) {
 
     }
 	
@@ -191,7 +191,7 @@ public class Stock {
 	 * @param prices
 	 * @return
 	 */
-	public static int maxProfit3(int[] prices) {
+	public static int maxProfit309(int[] prices) {
 		if (prices==null||prices.length<2) {
 			return 0;
 		}
@@ -227,7 +227,7 @@ public class Stock {
 	 * @param prices
 	 * @return
 	 */
-	public static int maxProfit32(int[] prices) {
+	public static int maxProfit3092(int[] prices) {
 		if (prices==null||prices.length<2) {
 			return 0;
 		}

@@ -69,4 +69,60 @@ public class CombinationSum {
 	}
 	
 	
+	/**
+	 * 90. k数和 II
+		给定n个不同的正整数，整数k（1<= k <= n）以及一个目标数字。　　　　
+
+在这n个数里面找出K个数，使得这K个数的和等于目标数字，你需要找出所有满足要求的方案。
+	 * @param A
+	 * @param k
+	 * @param target
+	 * @return
+	 */
+	public List<List<Integer>> kSumII(int[] A, int k, int target) {
+        // write your code here
+		
+		List<List<Integer>> resultList=new ArrayList<List<Integer>>();
+		
+		if (A==null) {
+			
+			return resultList;
+		}
+		
+		Arrays.sort(A);
+		
+		dfs2(A, k, target, 0, resultList, new ArrayList<Integer>());
+		
+		return resultList;
+    }
+	
+	public void dfs2(int[] A, 
+					int k, 
+					int target,
+					int startIndex,
+					List<List<Integer>> resultList,
+					List<Integer> list) {
+		
+		if (target<0||list.size()>k) {
+			return;
+		}
+		if (k==list.size()&&target==0) {
+			
+			
+			resultList.add(new ArrayList<Integer>(list));
+			return;
+		}
+		
+		
+		for (int i = startIndex; i < A.length; i++) {
+			
+			list.add(A[i]);
+			
+			dfs2(A, k, target-A[i],i+1, resultList, list);
+			
+			list.remove(list.size()-1);
+		}
+		
+	}
+	
 }

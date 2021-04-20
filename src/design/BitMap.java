@@ -2,7 +2,10 @@ package design;
 
 import java.util.Arrays;
 import java.util.BitSet;
-
+/**
+ * 
+ *	位图
+ */
 public class BitMap { 
 	// Java中char类型占16bit，也即是2个字节
 	private int[] bytes;

@@ -12,7 +12,7 @@ public class MoveZeroes {
 		moveZeroes(nums);
 	}
 	/**
-	 * 539. Move Zeroes
+	 * lintcode 539. Move Zeroes
 	 * 给一个数组 nums 写一个函数将 0 移动到数组的最后面，非零元素保持原数组的顺序
 	 * @param nums
 	 */
@@ -41,6 +41,12 @@ public class MoveZeroes {
 		System.out.println(Arrays.toString(nums));
     }
 	
+	
+	public static void swip(int[]nums,int i,int j) {
+		int temp=nums[i];
+		nums[i]=nums[j];
+		nums[j]=temp;
+	}
 	
 	
 	
@@ -74,9 +80,5 @@ public class MoveZeroes {
 	}
 	
 	
-	public static void swip(int[]nums,int i,int j) {
-		int temp=nums[i];
-		nums[i]=nums[j];
-		nums[j]=temp;
-	}
+	
 }

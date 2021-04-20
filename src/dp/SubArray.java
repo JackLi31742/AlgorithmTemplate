@@ -1,6 +1,6 @@
 package dp;
 
-public class SubContinuity {
+public class SubArray {
 
 	
 	/**

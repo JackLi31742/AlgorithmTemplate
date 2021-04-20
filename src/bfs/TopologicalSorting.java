@@ -165,12 +165,7 @@ public class TopologicalSorting {
 	public void buildGraph(int[] org, int[][] seqs,
 			Map<Integer, HashSet<Integer>> graph,Map<Integer, Integer> inDegree) {
 		
-//		for (int i = 0; i < org.length; i++) {
-//			
-//			graph.put(org[i], new ArrayList<Integer>());
-//			
-//			
-//		}
+
 		
 		for (int i = 0; i < seqs.length; i++) {
 			
@@ -340,30 +335,7 @@ public class TopologicalSorting {
 		}
 		
 		//是对前后的单词进行对比
-		
-//		for (int i = 0; i < words.length-1; i++) {
-//			
-////			for (int j = i+1; j < words.length; j++) {
-//				int j = i+1;
-//				int len=Math.min(words[i].length(), words[j].length());
-//				
-//				for (int k = 0; k < len; k++) {
-//					
-//					if (words[i].charAt(k)!=words[j].charAt(k)) {
-//						
-//						if (!graph.get(words[i].charAt(k)).contains(words[j].charAt(k))) {
-//							
-//							graph.get(words[i].charAt(k)).add(words[j].charAt(k));
-//							
-//							indegree.put(words[j].charAt(k), indegree.get(words[j].charAt(k))+1);
-//							
-//							break;
-//						}
-//						
-//					}
-//				}
-////			}
-//		}
+
 		
 		
 		for (int i = 0; i < words.length - 1; i++) {

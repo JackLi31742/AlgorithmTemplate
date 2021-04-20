@@ -100,46 +100,7 @@ public class ShortestPath {
 		        
 		        System.out.println(minimumTotal(triangle));;
 	}
-	/***
-	 * 图的最短路径
-	 * 从后向前递推，从后向前决策
-	 * 这种解法应该不是动态规划，拉勾上边讲错了
-	 * @param m
-	 */
-	public static int minPath(int[][] m) {
-		
-		return minPath(m, m[0].length-1);
-	}
-	
-	/**
-	 * 
-	 * @param m
-	 * @param end 到达的节点
-	 * @return distance的返回值给了minPath，加上m[i][end]赋值给了tempDis
-	 */
-	public static int minPath(int[][] m,int end) {
-		if (end==0) {
-			return 0;
-		}
-		
-		int distance=N;
-		
-		//由于每一轮都要找到前一轮，所以i不能是小于m[0].length，那样的话，之前的决策就没用了
-		for (int i = 0; i < end; i++) {
-			if (m[i][end]!=0) {
-				count++;
-				System.out.println(list.get(i)+"到"+list.get(end)+"的矩阵距离是："+m[i][end]);
-				int tempDis=m[i][end]+minPath(m,i);
-				//递归回溯相加后，就不是i到end的距离了，是一直累加的距离
-				System.out.println("经过"+list.get(i)+"到"+list.get(end)+"的距离是："+tempDis);
-				if (tempDis<distance) {
-					distance=tempDis;
-				}
-			}
-		}
-		
-		return distance;
-	} 
+
 	
 	
 	/**

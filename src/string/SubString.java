@@ -1,4 +1,4 @@
-package array;
+package string;
 
 import java.util.Arrays;
 
@@ -7,7 +7,7 @@ import java.util.Arrays;
  * @author JackLi
  *
  */
-public class SameDirectionTwoPoint {
+public class SubString {
 
 	public static void main(String[] args) {
 		
@@ -54,48 +54,7 @@ public class SameDirectionTwoPoint {
 		 return result;
 	 }
 	 
-	 /**
-	  * lintcode 521. Remove Duplicate Numbers in Array
-	  * 给一个整数数组，去除重复的元素。
-
-		你应该做这些事
-		
-		1.在原数组上操作
-		2.将去除重复之后的元素放在数组的开头
-		3.返回去除重复元素之后的元素个数
-	  * @param nums
-	  * @return
-	  */
-	 public static int deduplication(int[] nums) {
-	        // write your code here
-		 
-		 if (nums==null||nums.length==0) {
-			
-			 return 0;
-		}
-		 
-		 Arrays.sort(nums);
-		 
-		 int j=1;
-		 int i=0;
-		 
-		 for (; i < nums.length; ) {
-			 
-			while (j<nums.length&&nums[j]==nums[i]) {
-				j++;
-			}
-			
-			if (j>=nums.length) {
-				break;
-			}
-			
-			i++;
-			nums[i]=nums[j];
-			j++;
-		}
-		 
-		 return i+1;
-	 }
+	 
 	 
 	 
 	 /**

@@ -1,6 +1,6 @@
 package dp;
 
-public class WindowDP {
+public class maxValue {
 
 	/**
 	 * 741. 计算最大值II

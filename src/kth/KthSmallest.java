@@ -1,4 +1,4 @@
-package array;
+package kth;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;

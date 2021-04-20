@@ -1,6 +1,8 @@
-package list;
+package kth;
 
-public class Kth {
+import list.ListNode;
+
+public class KthNode {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

@@ -1,9 +1,5 @@
 package tree;
 
-
-import recursion.dfs.Result;
-import tree.TreeNode;
-
 public class Subtree {
 
 	public static void main(String[] args) {
@@ -134,7 +130,7 @@ public class Subtree {
 	 * @param root
 	 * @return
 	 */
-	public TreeNode findSubtree(TreeNode root) {
+	public TreeNode findSubtree2(TreeNode root) {
         // write your code here
 		
 		Result result = getMinSum(root);

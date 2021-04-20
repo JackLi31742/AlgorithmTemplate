@@ -61,12 +61,14 @@ public class Fibonacci {
 	}
 	
 	/**
-	 * 
+	 *  70. 爬楼梯
+	 *  
 	 * result=numWays(n-1)+1+numWays(n-2)+2;（这是错的）
 	 * 
 	 * 通过归纳，跳上n级台阶的解法是最后只剩1个台阶和最后只剩2个台阶解法的和
 	 * result=numWays(n-1)+numWays(n-2);
-	 * 70. 爬楼梯
+	 * 
+	 *
 	 * 一只青蛙一次可以跳上1级台阶，也可以跳上2级台阶。求该青蛙跳上一个 n 级的台阶总共有多少种跳法。
 	 * 
 	 * 可以根据第一步的走法把所有走法分为两类，第一类是第一步走了 1 个台阶，另一类是第一步走了 2 个台阶。
@@ -146,7 +148,11 @@ public class Fibonacci {
 		}
 		return n*getN(n-1);
 	}
-	
+	/**
+	 * 非递归实现n!
+	 * @param n
+	 * @return
+	 */
 	public int getN2(int n) {
 		if (n<=1) {
 			return 1;

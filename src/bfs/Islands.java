@@ -169,6 +169,14 @@ public class Islands {
 	 
 	
 	
+	/**
+	 * 695. 岛屿的最大面积
+	 * @param grid
+	 * @return
+	 */
+	public int maxAreaOfIsland(int[][] grid) {
+
+    }
 	
 }
 
