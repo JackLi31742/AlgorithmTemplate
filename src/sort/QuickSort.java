@@ -2,6 +2,11 @@ package sort;
 
 import java.util.Arrays;
 
+/**
+ * 912. 排序数组
+ * https://mp.weixin.qq.com/s/PQLC7qFjb74kt6PdExP8mw
+ *
+ */
 public class QuickSort {
 	
 	
@@ -12,6 +17,13 @@ public class QuickSort {
 		System.out.println(Arrays.toString(arr));
 	}
 	
+	public int[] sortArray(int[] nums) {
+
+//		sort(nums);
+		sort(nums, 0, nums.length-1);
+		
+		return nums;
+    }
 	
 	public static void sort(int[]nums) {
 		

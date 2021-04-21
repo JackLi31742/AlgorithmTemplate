@@ -247,6 +247,25 @@ public class Traversal {
 		return result;
 	}
 	
+	
+	static class Node {
+
+		public TreeNode treeNode;
+		public boolean flag;
+		
+		public Node(TreeNode treeNode, boolean flag) {
+			super();
+			this.treeNode = treeNode;
+			this.flag = flag;
+		}
+
+		@Override
+		public String toString() {
+			return "Node [treeNode=" + treeNode + ", flag=" + flag + "]";
+		}
+		
+	}
+	
 	/**
 	 * 102. 二叉树的层序遍历
 	 * 

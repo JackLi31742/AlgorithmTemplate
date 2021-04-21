@@ -1,10 +1,12 @@
-package tree;
+package kth;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class KthSmallest_Closest {
+import tree.TreeNode;
+
+public class KthSmallest_Closest_BST {
 
 	/**
 	 * 902 · BST中第K小的元素

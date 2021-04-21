@@ -3,7 +3,7 @@ package kth;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class KClosest {
+public class KClosestPoint {
 
 	
 	public static void main(String[] args) {
@@ -16,7 +16,7 @@ public class KClosest {
 		Point origin=new Point(0,0);
 		
 		Point[] points= {p1,p2,p3,p4,p5};
-		KClosest kClosest=new KClosest();
+		KClosestPoint kClosest=new KClosestPoint();
 		kClosest.kClosest(points, origin, 3);
 	}
 	/**
