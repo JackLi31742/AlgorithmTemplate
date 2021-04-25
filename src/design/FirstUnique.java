@@ -13,7 +13,7 @@ int firstUnique() // 返回第一个独特的数
 和lru的题目很像，需要把之前出现的有重复的数字删除，所以用链表
  *
  */
-public class DataStream {
+public class FirstUnique {
     
 	//key 是num，value是链表的节点
 	private Map<Integer, Node> map;
@@ -24,7 +24,7 @@ public class DataStream {
 	Node headNode;
 	Node tailNode;
 	
-    public DataStream(){
+    public FirstUnique(){
         // do intialization if necessary
     	map=new HashMap<Integer, Node>();
     	set=new HashSet<Integer>();

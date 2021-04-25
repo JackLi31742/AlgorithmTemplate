@@ -1,4 +1,4 @@
-package hash.bf;
+package design.bloomfilter;
 
 public class HashFunction {
 

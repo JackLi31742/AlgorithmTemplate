@@ -1,6 +1,10 @@
-package dfs;
+package bfs_dfs;
 
-public class Islands {
+import java.util.List;
+
+import dfs.Point;
+
+public class Islands_dfs {
 
 	
 	/**
@@ -108,4 +112,36 @@ public class Islands {
 		return true;
 		
 	}
+	
+	
+	
+	/**
+	 * 434 · 岛屿的个数II
+	 * 给定 n, m, 分别代表一个二维矩阵的行数和列数, 并给定一个大小为 k 的二元数组A. 
+	 * 初始二维矩阵全0. 二元数组A内的k个元素代表k次操作, 设第i个元素为 (A[i].x, A[i].y), 
+	 * 表示把二维矩阵中下标为A[i].x行A[i].y列的元素由海洋变为岛屿. 问在每次操作之后, 二维矩阵中岛屿的数量. 你需要返回一个大小为k的数组.
+
+设定0表示海洋, 1代表岛屿, 并且上下左右相邻的1为同一个岛屿.
+
+定义一个矩阵记录地图状态, 还需要定义初始含 n×m
+ 个集合的并查集, 以及一个计数器, 记录当前岛屿的个数.
+
+对于每一次操作(x, y), 如果(x, y)的上下左右都是0, 那么计数器加一; 如果不全为0, 则:
+
+并查集查询其四周的1所属的集合, 假设它们属于 k 个不同的集合
+计数器减去 k-1
+将这 k 个集合, 连同 (x, y), 合并
+
+并查集的实现可以利用Point结构体, 也可以将二维坐标转换成一维.
+
+使用并查集，每个格子作为一个节点。当一个格子变成岛屿，和它的四个邻居依次连
+接，相当于在图中加四条边
+	 * @param n
+	 * @param m
+	 * @param operators
+	 * @return
+	 */
+	public List<Integer> numIslands2(int n, int m, Point[] operators) {
+        // write your code here
+    }
 }

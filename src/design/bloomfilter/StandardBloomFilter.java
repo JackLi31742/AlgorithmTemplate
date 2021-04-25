@@ -1,4 +1,4 @@
-package hash.bf;
+package design.bloomfilter;
 
 /**
  * 556. 标准型布隆过滤器

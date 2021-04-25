@@ -1,4 +1,4 @@
-package bfs;
+package bfs_dfs;
 
 import java.util.ArrayDeque;
 import java.util.LinkedList;
@@ -10,7 +10,7 @@ import java.util.Queue;
  * 矩阵的BFS
  *
  */
-public class Islands {
+public class Islands_bfs {
 	
 	public static void main(String[] args) {
 		
@@ -29,7 +29,7 @@ public class Islands {
 				{false,false,false,false,true},
 		};
 		
-		Islands islands=new Islands();
+		Islands_bfs islands=new Islands_bfs();
 		
 		islands.numIslands(grid2);
 		
