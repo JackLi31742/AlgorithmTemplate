@@ -45,6 +45,37 @@ public class Sqrt {
     }
 	
 	/**
+	 * 对x开根II · Sqrt(x) II
+	 * 精确度保持在小数点后12位。
+	 * 一直二分直到 |number^2 - x| <= 1e-10
+	 * 
+	 * L/2^x<=10^-t
+	 * 
+	 * 2^x>=L/10^-t
+	 * 
+	 * x>=logL+log10*t
+	 * @param x
+	 * @return
+	 */
+	public double sqrt(double x) {
+        // Write your code here
+        double l = 0; 
+        double r = Math.max(x, 1.0);
+        double eps = 1e-12;
+        
+        while (l + eps < r) {
+            double mid = l + (r - l) / 2;
+            if (mid * mid < x) {
+                l = mid;
+            } else {
+                r = mid;
+            }
+        }
+        
+        return l;
+    }
+	
+	/**
 	 * 保留6位小数
 	 * @param x
 	 * @return
