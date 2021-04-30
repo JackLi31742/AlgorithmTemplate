@@ -2,10 +2,7 @@ package list;
 
 import java.util.Stack;
 
-/**
- * leetcod 206
- *
- */
+
 
 public class Reverse {
 

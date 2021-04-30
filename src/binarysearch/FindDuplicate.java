@@ -46,22 +46,22 @@ public class FindDuplicate {
 	
 	public int findDuplicate(int[] nums) {
         // Write your code here
-        int l = 1;
-        int r = nums.length - 1;  // n
+        int left = 1;
+        int right = nums.length - 1;  // n
         
-        while (l + 1 < r) {
-            int mid = l + (r - l) / 2;
+        while (left + 1 < right) {
+            int mid = left + (right - left) / 2;
             if (count(nums, mid) <= mid) {
-                l = mid;
+                left = mid;
             } else {
-                r = mid;
+                right = mid;
             }
         }
         
-        if (count(nums, l) <= l) {
-            return r;
+        if (count(nums, left) <= left) {
+            return right;
         }
-        return l;
+        return left;
     }
     //寻找比mid（S）小的数量
     private int count(int[] nums, int S) {

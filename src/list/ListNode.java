@@ -7,6 +7,14 @@ public class ListNode {
 	public ListNode(int x) {
 		val = x;
 	}
+	
+	
+
+	public ListNode() {
+		super();
+	}
+
+
 
 	@Override
 	public String toString() {
